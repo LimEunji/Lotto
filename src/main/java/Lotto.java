@@ -11,23 +11,17 @@ public class Lotto
 	public int[] getNumbers()
 	{
 		int[] numbers = new int[count];
-		setNumber(numbers, 0);
+		int i = 0;
+		while(i<6) setNumber(numbers, i++);
 		return numbers;
 	}
 
 	private void setNumber(int[] result, int times)
 	{
-		if (times >= count) {
-			return;
-		}
-
 		int randomNum = ThreadLocalRandom.current().nextInt(minNum, maxNum + 1);
-		if (checkDuplicated(result, randomNum, times)) {
-			setNumber(result, times);
-		} else {
-			result[times] = randomNum;
-			setNumber(result, times + 1);
-		}
+		while (checkDuplicated(result, randomNum, times))
+			randomNum = ThreadLocalRandom.current().nextInt(minNum,maxNum + 1);
+		result[times] = randomNum;
 	}
 
 	private boolean checkDuplicated(int[] result, int newNum, int times)

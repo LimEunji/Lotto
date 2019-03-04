@@ -1,7 +1,8 @@
 package test.java;
 
 import main.java.Lotto;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api
+		.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
